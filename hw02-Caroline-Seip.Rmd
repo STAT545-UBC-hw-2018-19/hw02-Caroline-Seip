@@ -87,3 +87,19 @@ min(gapminder$lifeExp)
 max(gapminder$lifeExp)
 ```
 
+We can also select only certain variables to display or work with
+```{r}
+select(gapminder, country, year, lifeExp)
+```
+
+Filtering
+```{r}
+filter(gapminder, lifeExp<30)
+```
+
+Piping
+```{r}
+gapminder %>%
+  filter(lifeExp<30)
+```
+

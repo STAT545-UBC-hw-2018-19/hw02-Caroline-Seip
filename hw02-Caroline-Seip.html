@@ -225,6 +225,37 @@ library(tidyverse)</code></pre>
 <pre><code>## [1] 23.599</code></pre>
 <pre class="r"><code>max(gapminder$lifeExp)</code></pre>
 <pre><code>## [1] 82.603</code></pre>
+<p>We can also select only certain variables to display or work with</p>
+<pre class="r"><code>select(gapminder, country, year, lifeExp)</code></pre>
+<pre><code>## # A tibble: 1,704 x 3
+##    country      year lifeExp
+##    &lt;fct&gt;       &lt;int&gt;   &lt;dbl&gt;
+##  1 Afghanistan  1952    28.8
+##  2 Afghanistan  1957    30.3
+##  3 Afghanistan  1962    32.0
+##  4 Afghanistan  1967    34.0
+##  5 Afghanistan  1972    36.1
+##  6 Afghanistan  1977    38.4
+##  7 Afghanistan  1982    39.9
+##  8 Afghanistan  1987    40.8
+##  9 Afghanistan  1992    41.7
+## 10 Afghanistan  1997    41.8
+## # ... with 1,694 more rows</code></pre>
+<p>Filtering</p>
+<pre class="r"><code>filter(gapminder, lifeExp&lt;30)</code></pre>
+<pre><code>## # A tibble: 2 x 6
+##   country     continent  year lifeExp     pop gdpPercap
+##   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;
+## 1 Afghanistan Asia       1952    28.8 8425333      779.
+## 2 Rwanda      Africa     1992    23.6 7290203      737.</code></pre>
+<p>Piping</p>
+<pre class="r"><code>gapminder %&gt;%
+  filter(lifeExp&lt;30)</code></pre>
+<pre><code>## # A tibble: 2 x 6
+##   country     continent  year lifeExp     pop gdpPercap
+##   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;
+## 1 Afghanistan Asia       1952    28.8 8425333      779.
+## 2 Rwanda      Africa     1992    23.6 7290203      737.</code></pre>
 </div>
 </div>
 
