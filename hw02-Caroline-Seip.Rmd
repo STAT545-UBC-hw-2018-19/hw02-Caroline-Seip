@@ -5,26 +5,40 @@ date: "September 18, 2018"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+*Bring regular data in
+
+Start by installing and loading the gapminder dataset and tidyverse. If you already have these installed, just load them using the library function.
+```{r}
+library(gapminder)
+library(tidyverse)
 ```
 
-## R Markdown
+*Smell test the data
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+```{r}
+class(gapminder)
+```
+It is a tibble data frame, a tibble and a data frame
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+How many columns?
+```{r}
+ncol(gapminder)
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+How many rows?
+```{r}
+nrow(gapminder)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Or you can use the dim function, which will give you the dimensions of your dataset, telling you the number of rows and columns using only one function
+```{r}
+dim(gapminder)
+```
+
+```{r}
+typeof(gapminder$country)
+typeof(gapminder$continent)
+typeof(gapminder$year)
+typeof
+```
+
