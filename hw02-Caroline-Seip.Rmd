@@ -2,7 +2,7 @@
 title: "hw02-CarolineSeip"
 author: "Caroline"
 date: "September 18, 2018"
-output: html_document
+output: github_document
 ---
 
 #Bring regular data in
