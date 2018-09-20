@@ -5,7 +5,7 @@ date: "September 18, 2018"
 output: html_document
 ---
 
-*Bring regular data in
+#Bring regular data in
 
 Start by installing and loading the gapminder dataset and tidyverse. If you already have these installed, just load them using the library function.
 ```{r}
@@ -13,7 +13,7 @@ library(gapminder)
 library(tidyverse)
 ```
 
-*Smell test the data
+#Smell test the data
 
 ```{r}
 class(gapminder)
@@ -35,10 +35,55 @@ Or you can use the dim function, which will give you the dimensions of your data
 dim(gapminder)
 ```
 
+We can either do it one by one using the class function
+
 ```{r}
-typeof(gapminder$country)
-typeof(gapminder$continent)
-typeof(gapminder$year)
-typeof
+class(gapminder$country)
+```
+```{r}
+class(gapminder$continent)
+```
+
+
+Or get them all at the same time using the lapply function
+```{r}
+lapply(gapminder, class)
+```
+
+#Explore individual variables
+
+##Quantitative variable: population
+
+To find the range of possible values for a quantitative variable use the range function
+```{r}
+range(gapminder$pop)
+```
+
+##Categoirical variable: continent
+
+To find the possible values for a categorical variable, use the unique function
+```{r}
+unique(gapminder$continent)
+```
+
+To find the typical values (mean, median), spread, distribution use the summary function
+```{r}
+summary(gapminder)
+```
+
+To get these individually you can use the mean function
+```{r}
+mean(gapminder$lifeExp)
+```
+
+To see the spread you can use the range function
+```{r}
+range(gapminder$lifeExp)
+```
+
+Or find the min and max
+```{r}
+min(gapminder$lifeExp)
+max(gapminder$lifeExp)
 ```
 
