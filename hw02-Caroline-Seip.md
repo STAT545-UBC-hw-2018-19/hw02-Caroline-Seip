@@ -6,26 +6,28 @@ September 18, 2018
 Bring regular data in
 =====================
 
-Start by installing and loading the gapminder dataset and tidyverse. If you already have these installed, just load them using the library function.
+Start by installing and loading the gapminder dataset and tidyverse. If you already have these installed, just load them using the 'library' function.
 
 ``` r
 library(gapminder)
 library(tidyverse)
 ```
 
-    ## ── Attaching packages ─────────────────────────────────────────── tidyverse 1.2.1 ──
+    ## ── Attaching packages ────────────────────── tidyverse 1.2.1 ──
 
     ## ✔ ggplot2 3.0.0     ✔ purrr   0.2.5
     ## ✔ tibble  1.4.2     ✔ dplyr   0.7.6
     ## ✔ tidyr   0.8.1     ✔ stringr 1.3.1
     ## ✔ readr   1.1.1     ✔ forcats 0.3.0
 
-    ## ── Conflicts ────────────────────────────────────────────── tidyverse_conflicts() ──
+    ## ── Conflicts ───────────────────────── tidyverse_conflicts() ──
     ## ✖ dplyr::filter() masks stats::filter()
     ## ✖ dplyr::lag()    masks stats::lag()
 
 Smell test the data
 ===================
+
+First let's figure out what class the data is, using the 'class' function.
 
 ``` r
 class(gapminder)
@@ -33,9 +35,9 @@ class(gapminder)
 
     ## [1] "tbl_df"     "tbl"        "data.frame"
 
-It is a tibble data frame, a tibble and a data frame
+This tells us that the class of the gapminder dataset is a tibble dataframe.
 
-How many columns?
+How many columns does the gapminder dataset contain? Use the function 'ncol'
 
 ``` r
 ncol(gapminder)
@@ -43,7 +45,9 @@ ncol(gapminder)
 
     ## [1] 6
 
-How many rows?
+The gapminder dataset contains 6 columns.
+
+How many rows does the gapminder dataset contain? Use the function 'nrow'
 
 ``` r
 nrow(gapminder)
@@ -51,7 +55,9 @@ nrow(gapminder)
 
     ## [1] 1704
 
-Or you can use the dim function, which will give you the dimensions of your dataset, telling you the number of rows and columns using only one function
+The gapminder dataset contains 1704 rows.
+
+Or you can use the 'dim' function, which will give you the dimensions of your dataset, telling you the number of rows and columns using only one function.
 
 ``` r
 dim(gapminder)
@@ -59,7 +65,9 @@ dim(gapminder)
 
     ## [1] 1704    6
 
-We can either do it one by one using the class function
+The gapminder dataset contains 1704 rows and 6 columns.
+
+We can find the type of each variable one by one using the 'class' function:
 
 ``` r
 class(gapminder$country)
@@ -68,12 +76,12 @@ class(gapminder$country)
     ## [1] "factor"
 
 ``` r
-class(gapminder$continent)
+class(gapminder$gdpPercap)
 ```
 
-    ## [1] "factor"
+    ## [1] "numeric"
 
-Or get them all at the same time using the lapply function
+Or we can get them all at the same time using the 'lapply' function:
 
 ``` r
 lapply(gapminder, class)
@@ -103,7 +111,7 @@ Explore individual variables
 Quantitative variable: population
 ---------------------------------
 
-To find the range of possible values for a quantitative variable use the range function
+To find the range of possible values for a quantitative variable, we can use the 'range' function:
 
 ``` r
 range(gapminder$pop)
@@ -111,10 +119,12 @@ range(gapminder$pop)
 
     ## [1]      60011 1318683096
 
+This tells us that all values for the quantitative variable 'population' are between 60,011 and 1,318,683,096.
+
 Categoirical variable: continent
 --------------------------------
 
-To find the possible values for a categorical variable, use the unique function
+To find the possible values for a categorical variable, we can use the 'unique' function:
 
 ``` r
 unique(gapminder$continent)
@@ -123,7 +133,9 @@ unique(gapminder$continent)
     ## [1] Asia     Europe   Africa   Americas Oceania 
     ## Levels: Africa Americas Asia Europe Oceania
 
-To find the typical values (mean, median), spread, distribution use the summary function
+This shows us the 6 different possible values for the categorical variable 'continent'.
+
+To find the typical values (mean, median), spread, and distribution of each variable in a dataset, we can use the 'summary' function:
 
 ``` r
 summary(gapminder)
@@ -146,7 +158,7 @@ summary(gapminder)
     ##  Max.   :1.319e+09   Max.   :113523.1  
     ## 
 
-To get these individually you can use the mean function
+To get the typical values for each variable individually we can use the 'mean' function:
 
 ``` r
 mean(gapminder$lifeExp)
@@ -154,7 +166,9 @@ mean(gapminder$lifeExp)
 
     ## [1] 59.47444
 
-To see the spread you can use the range function
+The mean life expectancy is 59.47 years.
+
+To see the spread of each variable individually we can use the 'range' function:
 
 ``` r
 range(gapminder$lifeExp)
@@ -162,7 +176,9 @@ range(gapminder$lifeExp)
 
     ## [1] 23.599 82.603
 
-Or find the min and max
+The range of life expectancy is between 23.6 and 82.6 years.
+
+Or we can find the minimum and maximum to show the spread:
 
 ``` r
 min(gapminder$lifeExp)
@@ -176,7 +192,15 @@ max(gapminder$lifeExp)
 
     ## [1] 82.603
 
-We can also select only certain variables to display or work with
+The minimum life expectancy is 23.6 years and the maximum is 82.6 years.
+
+Explore various plot types
+==========================
+
+Use filter, select and piping
+=============================
+
+We can also select only certain variables to display or work with, using the 'select' function:
 
 ``` r
 select(gapminder, country, year, lifeExp)
@@ -197,7 +221,9 @@ select(gapminder, country, year, lifeExp)
     ## 10 Afghanistan  1997    41.8
     ## # ... with 1,694 more rows
 
-Filtering
+This selects the variables 'country', 'year', and 'life expectancy'.
+
+Using the 'filter' function allows us to show only the rows of data that we want to see, for example if we want to only see the rows that have a life expectancy below 30:
 
 ``` r
 filter(gapminder, lifeExp<30)
@@ -209,7 +235,9 @@ filter(gapminder, lifeExp<30)
     ## 1 Afghanistan Asia       1952    28.8 8425333      779.
     ## 2 Rwanda      Africa     1992    23.6 7290203      737.
 
-Piping
+This only shows the rows for Afghanistan in 1952 and Rwanda in 1992, the two instances in which the average life expectancy was below 30.
+
+Piping uses the symbols %&gt;% to mean "then". For example, this shows use gapminder, THEN filter life expectancy for less than 30 years.
 
 ``` r
 gapminder %>%
@@ -221,3 +249,5 @@ gapminder %>%
     ##   <fct>       <fct>     <int>   <dbl>   <int>     <dbl>
     ## 1 Afghanistan Asia       1952    28.8 8425333      779.
     ## 2 Rwanda      Africa     1992    23.6 7290203      737.
+
+Using piping means that we can string several functions together, using the output from one function for the input of the next. This makes the code more simple and avoids long, messy strings of functions within each other.
