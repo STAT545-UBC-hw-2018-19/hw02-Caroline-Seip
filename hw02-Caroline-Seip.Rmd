@@ -7,7 +7,7 @@ output: github_document
 
 #Bring regular data in
 
-Start by installing and loading the gapminder dataset and tidyverse. If you already have these installed, just load them using the library function.
+Start by installing and loading the gapminder dataset and tidyverse. If you already have these installed, just load them using the 'library' function.
 ```{r}
 library(gapminder)
 library(tidyverse)
@@ -33,7 +33,7 @@ nrow(gapminder)
 ```
 The gapminder dataset contains 1704 rows.
 
-Or you can use the dim function, which will give you the dimensions of your dataset, telling you the number of rows and columns using only one function
+Or you can use the 'dim' function, which will give you the dimensions of your dataset, telling you the number of rows and columns using only one function.
 ```{r}
 dim(gapminder)
 ```
