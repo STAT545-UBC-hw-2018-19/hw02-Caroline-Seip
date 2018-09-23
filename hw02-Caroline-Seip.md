@@ -197,8 +197,9 @@ The minimum life expectancy is 23.6 years and the maximum is 82.6 years.
 Explore various plot types
 ==========================
 
-Use filter, select and piping
-=============================
+Now let's use plots to visualize how the data in the gapminder dataset looks.
+
+First we will look at how life expectancy varies by \#Use filter, select and piping
 
 We can also select only certain variables to display or work with, using the 'select' function:
 
