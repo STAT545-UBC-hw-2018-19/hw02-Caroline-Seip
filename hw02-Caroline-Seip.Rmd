@@ -15,37 +15,39 @@ library(tidyverse)
 
 #Smell test the data
 
+First let's figure out what class the data is, using the 'class' function.
 ```{r}
 class(gapminder)
 ```
-It is a tibble data frame, a tibble and a data frame
+This tells us that the class of the gapminder dataset is a tibble dataframe.
 
-How many columns?
+How many columns does the gapminder dataset contain? Use the function 'ncol'
 ```{r}
 ncol(gapminder)
 ```
+The gapminder dataset contains 6 columns.
 
-How many rows?
+How many rows does the gapminder dataset contain? Use the function 'nrow'
 ```{r}
 nrow(gapminder)
 ```
+The gapminder dataset contains 1704 rows.
 
 Or you can use the dim function, which will give you the dimensions of your dataset, telling you the number of rows and columns using only one function
 ```{r}
 dim(gapminder)
 ```
+The gapminder dataset contains 1704 rows and 6 columns.
 
-We can either do it one by one using the class function
-
+We can find the type of each variable one by one using the 'class' function:
 ```{r}
 class(gapminder$country)
 ```
 ```{r}
-class(gapminder$continent)
+class(gapminder$gdpPercap)
 ```
 
-
-Or get them all at the same time using the lapply function
+Or we can get them all at the same time using the lapply function:
 ```{r}
 lapply(gapminder, class)
 ```
@@ -54,43 +56,52 @@ lapply(gapminder, class)
 
 ##Quantitative variable: population
 
-To find the range of possible values for a quantitative variable use the range function
+To find the range of possible values for a quantitative variable, we can use the 'range' function:
 ```{r}
 range(gapminder$pop)
 ```
+This tells us that all values for the quantitative variable 'population' are between 60,011 and 1,318,683,096.
 
 ##Categoirical variable: continent
 
-To find the possible values for a categorical variable, use the unique function
+To find the possible values for a categorical variable, we can use the 'unique' function:
 ```{r}
 unique(gapminder$continent)
 ```
+This shows us the 6 different possible values for the categorical variable 'continent'.
 
-To find the typical values (mean, median), spread, distribution use the summary function
+To find the typical values (mean, median), spread, and distribution of each variable in a dataset, we can use the 'summary' function:
 ```{r}
 summary(gapminder)
 ```
 
-To get these individually you can use the mean function
+To get the typical values for each variable individually we can use the 'mean' function:
 ```{r}
 mean(gapminder$lifeExp)
 ```
+The mean life expectancy is 59.47 years.
 
-To see the spread you can use the range function
+To see the spread of each variable individually we can use the 'range' function:
 ```{r}
 range(gapminder$lifeExp)
 ```
+The range of life expectancy is between 23.6 and 82.6 years.
 
-Or find the min and max
+Or we can find the minimum and maximum to show the spread:
 ```{r}
 min(gapminder$lifeExp)
 max(gapminder$lifeExp)
 ```
+The minimum life expectancy is 23.6 years and the maximum is 82.6 years.
+#Explore various plot types
 
-We can also select only certain variables to display or work with
+#Use filter, select and piping
+
+We can also select only certain variables to display or work with, using the 'select' function:
 ```{r}
 select(gapminder, country, year, lifeExp)
 ```
+This selects the variables country, year, and life expectancy.
 
 Filtering
 ```{r}
