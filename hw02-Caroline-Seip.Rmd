@@ -181,3 +181,20 @@ gapminder %>%
   ylab("Log of GDP per capita")
 ```
 Here we used filtering, piping and the 'geom_point' function in 'ggplot' to show the increasing logarithmic trend of life expectancy with GDP per capita in Canada.
+
+#But I want to do more!
+
+Let's see whether this code works:
+
+```{r}
+filter(gapminder, country == c("Rwanda", "Afghanistan"))
+```
+Hmm, seems like there is some missing data. Because we made a series out of the two countries, data for overlapping years did not show up. Data for Afghanistan is only shown for years ending in 7, and data for Rwanda is only shown for years ending in two.
+
+Instead, let's try using or ("|") to filter the data of the two countries:
+```{r}
+filter(gapminder, country == "Rwanda" | country=="Afghanistan")
+```
+
+Now we haven't lost any of the data. Yay!
+
