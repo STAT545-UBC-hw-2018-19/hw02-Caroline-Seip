@@ -206,7 +206,9 @@ ggplot(gapminder, aes(gdpPercap)) +
   geom_histogram(bins=50)
 ```
 
-![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-15-1.png) This gives a descriptive visualization of the dataset where we can see most of the data points have a GDP per capita of less than 15,000. Very few are over 30,000.
+![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-15-1.png)
+
+This gives a descriptive visualization of the dataset where we can see most of the data points have a GDP per capita of less than 15,000. Very few are over 30,000.
 
 Let's see what it would look like if we chose only 5 bins:
 
@@ -215,7 +217,9 @@ ggplot(gapminder, aes(gdpPercap)) +
   geom_histogram(bins=5)
 ```
 
-![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-16-1.png) This is much less descriptive visualization of the dataset. We can tell that most of the values are low, but not much more than that.
+![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-16-1.png)
+
+This is much less descriptive visualization of the dataset. We can tell that most of the values are low, but not much more than that.
 
 Now we will look at how GDP per capita varies by continent using a boxplot, using the 'geom\_boxplot' function in ggplot. We can also add x and y labels using 'xlab' and 'ylab'.
 
@@ -226,7 +230,9 @@ ggplot(gapminder, aes(continent, gdpPercap)) +
   ylab("GDP per capita")
 ```
 
-![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-17-1.png) This shows us the range of GDPs per capita for each continent, but isn't very descriptive of the data.
+![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-17-1.png)
+
+This shows us the range of GDPs per capita for each continent, but isn't very descriptive of the data.
 
 Now let's use a violin plot (geom\_violin) to see if this gives us a more descriptive visualization of the data:
 
@@ -237,7 +243,9 @@ ggplot(gapminder, aes(continent, gdpPercap)) +
   ylab("GDP per capita")
 ```
 
-![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-18-1.png) This shows us the distribution of data points for GDP per capita for each continent. It is much more descriptive in showing how many data points are at each level.
+![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-18-1.png)
+
+This shows us the distribution of data points for GDP per capita for each continent. It is much more descriptive in showing how many data points are at each level.
 
 Now let's use a scatterplot to see how life expectancy and GDP per capita relate to each other:
 
@@ -248,7 +256,9 @@ geom_point() +
   ylab("GDP per capita")
 ```
 
-![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-19-1.png) It looks like life expectancy rises with GDP per capita. It also looks like this is a logarithmic relationship, let's put it on a log scale to better visualize the relationship:
+![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-19-1.png)
+
+It looks like life expectancy rises with GDP per capita. It also looks like this is a logarithmic relationship, let's put it on a log scale to better visualize the relationship:
 
 ``` r
 ggplot(gapminder, aes(lifeExp, log(gdpPercap))) +
@@ -257,7 +267,9 @@ geom_point() +
   ylab("Log of GDP per capita")
 ```
 
-![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-20-1.png) Now we can really see that life expectancy increases logarithmicly with GDP per capita.
+![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-20-1.png)
+
+Now we can really see that life expectancy increases logarithmicly with GDP per capita.
 
 Use filter, select and piping
 =============================
@@ -325,7 +337,9 @@ gapminder %>%
   ylab("Log of GDP per capita")
 ```
 
-![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-24-1.png) Here we used filtering, piping and the 'geom\_point' function in 'ggplot' to show the increasing logarithmic trend of life expectancy with GDP per capita in Canada.
+![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-24-1.png)
+
+Here we used filtering, piping and the 'geom\_point' function in 'ggplot' to show the increasing logarithmic trend of life expectancy with GDP per capita in Canada.
 
 But I want to do more!
 ======================
