@@ -13,21 +13,31 @@ library(gapminder)
 library(tidyverse)
 ```
 
-    ## ── Attaching packages ──────────────────────────── tidyverse 1.2.1 ──
+    ## ── Attaching packages ──────────────────────────────────────────────── tidyverse 1.2.1 ──
 
     ## ✔ ggplot2 3.0.0     ✔ purrr   0.2.5
     ## ✔ tibble  1.4.2     ✔ dplyr   0.7.6
     ## ✔ tidyr   0.8.1     ✔ stringr 1.3.1
     ## ✔ readr   1.1.1     ✔ forcats 0.3.0
 
-    ## ── Conflicts ─────────────────────────────── tidyverse_conflicts() ──
+    ## ── Conflicts ─────────────────────────────────────────────────── tidyverse_conflicts() ──
     ## ✖ dplyr::filter() masks stats::filter()
     ## ✖ dplyr::lag()    masks stats::lag()
 
 Smell test the data
 ===================
 
-First let's figure out what class the data is, using the 'class' function.
+First let's see what type of dataset gapminder is, using the 'typeof' function.
+
+``` r
+typeof(gapminder)
+```
+
+    ## [1] "list"
+
+This tells us that the gapminder dataset is a list.
+
+Now let's figure out what class the data is, using the 'class' function.
 
 ``` r
 class(gapminder)
@@ -35,7 +45,7 @@ class(gapminder)
 
     ## [1] "tbl_df"     "tbl"        "data.frame"
 
-This tells us that the class of the gapminder dataset is a tibble dataframe.
+This tells us that the gapminder dataset contains tbl\_df, tbl and data.frame classes.
 
 How many columns does the gapminder dataset contain? Use the function 'ncol'
 
@@ -206,7 +216,7 @@ ggplot(gapminder, aes(gdpPercap)) +
   geom_histogram(bins=50)
 ```
 
-![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-15-1.png)
+![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-16-1.png)
 
 This gives a descriptive visualization of the dataset where we can see most of the data points have a GDP per capita of less than 15,000. Very few are over 30,000.
 
@@ -217,7 +227,7 @@ ggplot(gapminder, aes(gdpPercap)) +
   geom_histogram(bins=5)
 ```
 
-![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-16-1.png)
+![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-17-1.png)
 
 This is much less descriptive visualization of the dataset. We can tell that most of the values are low, but not much more than that.
 
@@ -230,7 +240,7 @@ ggplot(gapminder, aes(continent, gdpPercap)) +
   ylab("GDP per capita")
 ```
 
-![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-17-1.png)
+![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-18-1.png)
 
 This shows us the range of GDPs per capita for each continent, but isn't very descriptive of the data.
 
@@ -243,7 +253,7 @@ ggplot(gapminder, aes(continent, gdpPercap)) +
   ylab("GDP per capita")
 ```
 
-![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-18-1.png)
+![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-19-1.png)
 
 This shows us the distribution of data points for GDP per capita for each continent. It is much more descriptive in showing how many data points are at each level.
 
@@ -256,7 +266,7 @@ geom_point() +
   ylab("GDP per capita")
 ```
 
-![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-19-1.png)
+![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-20-1.png)
 
 It looks like life expectancy rises with GDP per capita. It also looks like this is a logarithmic relationship, let's put it on a log scale to better visualize the relationship:
 
@@ -267,7 +277,7 @@ geom_point() +
   ylab("Log of GDP per capita")
 ```
 
-![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-20-1.png)
+![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-21-1.png)
 
 Now we can really see that life expectancy increases logarithmicly with GDP per capita.
 
@@ -337,7 +347,7 @@ gapminder %>%
   ylab("Log of GDP per capita")
 ```
 
-![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-24-1.png)
+![](hw02-Caroline-Seip_files/figure-markdown_github/unnamed-chunk-25-1.png)
 
 Here we used filtering, piping and the 'geom\_point' function in 'ggplot' to show the increasing logarithmic trend of life expectancy with GDP per capita in Canada.
 

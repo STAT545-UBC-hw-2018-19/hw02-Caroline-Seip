@@ -15,11 +15,17 @@ library(tidyverse)
 
 #Smell test the data
 
-First let's figure out what class the data is, using the 'class' function.
+First let's see what type of dataset gapminder is, using the 'typeof' function.
+```{r}
+typeof(gapminder)
+```
+This tells us that the gapminder dataset is a list.
+
+Now let's figure out what class the data is, using the 'class' function.
 ```{r}
 class(gapminder)
 ```
-This tells us that the class of the gapminder dataset is a tibble dataframe.
+This tells us that the gapminder dataset contains tbl_df, tbl and data.frame classes.
 
 How many columns does the gapminder dataset contain? Use the function 'ncol'
 ```{r}
